@@ -49,6 +49,26 @@ namespace LeetCode
             }
             return Array.Empty<int>();
         }
+
+        public int[] TwoSum_3(int[] nums, int target)
+        {
+            var arrayLenght = nums.Length;
+
+            for (int i = 0; i < arrayLenght; i++)
+            {
+                for (int j = i + 1; j < arrayLenght; j++)
+                {
+                    if (nums[i] + nums[j] == target)
+                    {
+                        return new int[] { i, j };
+                    }
+
+                }
+
+
+            }
+            return Array.Empty<int>();
+        }
         #endregion
 
         #region ExerciseForPractice
