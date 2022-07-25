@@ -71,6 +71,21 @@ namespace LeetCode
         }
         #endregion
 
+        #region 1929. Concatenation of Array
+
+        public int[] GetConcatenation(int[] nums)
+        {
+            int[] ans =new int[nums.Length *2];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                ans[i] = nums[i];
+                ans[i+nums.Length]= nums[i];
+            }
+            return ans;
+        }
+        #endregion
+
         #region ExerciseForPractice
         static int ExAddDigits(int num)
         {
@@ -95,6 +110,12 @@ namespace LeetCode
                 return AddDigits(temp);
             }
         }
+
+        private static int AddDigits(int temp)
+        {
+            throw new NotImplementedException();
+        }
+
         static int ExSumOfDigits(int num)
         {
             int temp, r, sum = 0;
@@ -203,7 +224,7 @@ namespace LeetCode
             return nums[low] == target ? low : -1;
 
 
-            return Array.IndexOf(nums, target);
+           // return Array.IndexOf(nums, target);
         }
 
         public static int ExFinalValueAfterOperations(string[] operations)
