@@ -19,7 +19,11 @@ namespace LeetCode
             Console.WriteLine(Array101.FindNumbers(new int[] { 555, 901, 482, 1771 }));
 
 
-           var res = Array101.SortedSquares(new int[] { -7, -3, 2, 3, 11 });
+            //var res = Array101.SortedSquares(new int[] { -7, -3, 2, 3, 11 });
+
+            var res = Array101.DuplicateZeros(new int[] { 1, 0, 2, 3, 0, 4, 5, 0 });
+
+             Array101.merge(new int[] { 1, 2, 3, 0, 0, 0 },3,new int[] { 2, 5, 6 },3);
 
             Console.WriteLine();
 
