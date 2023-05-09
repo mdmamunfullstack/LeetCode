@@ -57,15 +57,25 @@
             // SecondSmallestNumber();
             // PrintTriangle(new int[] { 1, 2, 3, 4 });
 
-            var arr = rotateRight(new int[] { 1, 2, 3, 4, 5 });
+            //var arr = rotateRight(new int[] { 1, 2, 3, 4, 5 });
 
             // Array.ForEach(arr, Console.WriteLine);
 
-            var arr2 = moveZeroToTheEnd(new int[] { 0, 1, 0, 8, 9, 0, 4 });
+            //var arr2 = moveZeroToTheEnd(new int[] { 0, 1, 0, 8, 9, 0, 4 });
 
-            int[] arr3 = new int[] { 1, 2, 3, 4, 5 };
-            ReverseArray(arr3);
-            Array.ForEach(arr3, Console.WriteLine);
+            //int[] arr3 = new int[] { 1, 2, 3, 4, 5 };
+            // ReverseArray(arr3);
+            //Array.ForEach(arr3, Console.WriteLine);
+
+          //  int[] arr3 = new int[] { 1, 2, 3, 4, 5 };
+
+          // var RunningSums = RunningSum(arr3);
+                                                           
+          var accounts = new int[][]{ new int[]{1, 5 }, new int[]{ 7, 3 }, new int[]{ 3, 5 } };
+
+
+         var maxWealth = MaximumWealth(accounts);
+
         }
 
         public static void ReverseArray(int[] arr)
@@ -156,6 +166,86 @@
             Console.WriteLine("arr9 :" + findSecondSmallestNumber(arr9));
             Console.WriteLine("arr10 :" + findSecondSmallestNumber(arr10));
             Console.WriteLine("arr11 :" + findSecondSmallestNumber(arr11));
+        }
+
+
+        //1480. Running Sum of 1d Array
+        public static int[] RunningSum(int[] nums)
+        {
+
+            int[] results = new int[nums.Length];
+
+            results[0] = nums[0];
+
+            for (int i = 1; i < nums.Length; i++)
+            {
+                results[i] = nums[i] + results[i - 1];
+
+
+            }
+
+            return results;
+
+
+        }
+
+        public static int[] RunningSum_V2(int[] nums)
+        {
+
+
+
+         
+
+            for (int i = 1; i < nums.Length; i++)
+            {
+                nums[i] = nums[i] + nums[i - 1];
+
+
+            }
+
+
+            return nums;
+
+
+        }
+
+
+        //https://leetcode.com/problems/richest-customer-wealth/
+        //1672. Richest Customer Wealth
+        public  static int MaximumWealth(int[][] accounts)
+        {
+            int maxWealthSoFar = 0;
+
+            foreach (var customer in accounts)
+            {
+                int currentCustomerWealth = 0;
+                foreach (var bank in customer)
+                {
+
+                    currentCustomerWealth += bank;
+                }
+
+                maxWealthSoFar = Math.Max(maxWealthSoFar, currentCustomerWealth);
+
+
+            }
+            return maxWealthSoFar;
+
+        }
+
+
+        public static int MaximumWealth_V2(int[][] accounts)
+        {
+            int maxWealthSoFar = 0;
+
+            foreach (var customer in accounts)
+            {
+
+                maxWealthSoFar = customer.Sum() > maxWealthSoFar ? customer.Sum() : maxWealthSoFar;
+
+            }
+            return maxWealthSoFar;
+
         }
     }
 }
