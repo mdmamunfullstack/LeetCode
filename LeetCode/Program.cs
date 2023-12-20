@@ -19,14 +19,73 @@ namespace LeetCode
             Console.WriteLine(Array101.FindNumbers(new int[] { 555, 901, 482, 1771 }));
 
 
-            //var res = Array101.SortedSquares(new int[] { -7, -3, 2, 3, 11 });
+            //var res = Array101.SortedSquares(new int[] { -
+            //7, -3, 2, 3, 11 });
 
-            var res = Array101.DuplicateZeros(new int[] { 1, 0, 2, 3, 0, 4, 5, 0 });
+            // var res = Array101.DuplicateZeros(new int[] { 1, 0, 2, 3, 0, 4, 5, 0 });
 
-             Array101.merge(new int[] { 1, 2, 3, 0, 0, 0 },3,new int[] { 2, 5, 6 },3);
+            //Array101.merge(new int[] { 1, 2, 3, 0, 0, 0 },3,new int[] { 2, 5, 6 },3);
 
-            Console.WriteLine();
+            //DeleteFirstElement(); 
 
+
+
+            //RemoveLastElement();
+
+
+
+
+            int[] numbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            RemoveElementAtIndex(ref numbers, 4);
+
+
+            Console.WriteLine($"Array : {string.Join(" ", numbers)}");
+
+        }
+
+        private static int[] RemoveElementAtIndex(ref int[] numbers, int indexAt)
+        {
+     
+
+            indexAt = 5;
+            for (int i = indexAt; i < numbers.Length - 1; i++)
+            {
+                numbers[i] = numbers[i + 1];
+            }
+
+            Array.Resize(ref numbers, numbers.Length - 1);
+            return numbers;
+        }
+
+        private static void RemoveLastElement()
+        {
+            int[] numbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+
+            Array.Resize(ref numbers, numbers.Length - 1);
+
+
+            Console.WriteLine($"Array : {string.Join(" ", numbers)}");
+        }
+
+        private static void DeleteFirstElement()
+        {
+            int[] numbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            Console.WriteLine($"length : {numbers.Length}");
+
+            for (int i = 0; i < numbers.Length - 1; i++)
+            {
+                numbers[i] = numbers[i + 1];
+            }
+
+            Array.Resize(ref numbers, numbers.Length - 1);
+
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine($"index {i} : value {numbers[i]}");
+            }
         }
 
         private static void PopulateDataUsingLoop()
