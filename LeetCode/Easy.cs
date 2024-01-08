@@ -314,5 +314,48 @@ namespace LeetCode
         }
 
         #endregion
+
+
+        # region 12. Integer to Roman
+
+        //https://leetcode.com/problems/integer-to-roman/description/
+        private static int RomanToInteger(string romanString)
+        {
+
+            string romanStringUpperCase = romanString.ToUpper();
+            int sum = 0;
+            Dictionary<char, int> romanMap = new Dictionary<char, int>()
+            {
+                { 'I', 1 },
+                { 'V', 5 },
+                { 'X', 10 },
+                { 'L', 50 },
+                { 'C', 100 },
+                { 'D', 500 },
+                { 'M', 1000 },
+
+            };
+
+            for (int i = 0; i < romanStringUpperCase.Length; i++)
+            {
+                char currentChar = romanStringUpperCase[i];
+                var currentNumber = romanMap[currentChar];
+
+                if (i + 1 < romanStringUpperCase.Length && romanMap[romanStringUpperCase[i + 1]] > romanMap[romanStringUpperCase[i]])
+                {
+                    sum -= currentNumber;
+                }
+                else
+                {
+                    sum += currentNumber;
+                }
+
+            }
+
+            return sum;
+
+        }
+
+        #endregion
     }
 }

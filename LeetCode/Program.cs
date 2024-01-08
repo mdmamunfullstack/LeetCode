@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace LeetCode
 {
@@ -16,7 +18,7 @@ namespace LeetCode
             // var maxConsecutiveOnes =  Array101.findMaxConsecutiveOnes(new int[] { 1, 1, 0, 1, 1, 1 });
 
             ;
-            Console.WriteLine(Array101.FindNumbers(new int[] { 555, 901, 482, 1771 }));
+            //Console.WriteLine(Array101.FindNumbers(new int[] { 555, 901, 482, 1771 }));
 
 
             //var res = Array101.SortedSquares(new int[] { -
@@ -32,15 +34,66 @@ namespace LeetCode
 
             //RemoveLastElement();
 
+            //RemoveElement(new int[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2);
+
+          //  RemoveDuplicates(new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 });
 
 
 
-            int[] numbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            RemoveElementAtIndex(ref numbers, 4);
 
 
-            Console.WriteLine($"Array : {string.Join(" ", numbers)}");
 
+
+           // int[] numbers = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+           // RemoveElementAtIndex(ref numbers, 4);
+
+
+          //  Console.WriteLine($"Array : {string.Join(" ", numbers)}");
+
+
+
+          
+
+        }
+
+      
+
+        private static int RemoveDuplicates(int[] nums)
+        {
+
+            if (nums.Length == 0)
+            {
+                return 0; // If the array is empty, there are no duplicates
+            }
+            int uniqueCount = 1;
+
+            for (int i = 1; i < nums.Length ; i++)
+            {
+                if (nums[i] != nums[i -1])
+                {
+                    nums[uniqueCount] = nums[i];
+                    uniqueCount++;
+                }
+
+            }
+
+            return uniqueCount;
+        }
+
+        private static int RemoveElement(int[] nums, int value)
+        {
+
+            int index = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != value)
+                {
+                    nums[index] = nums[i];
+                    index++;
+                }
+            }
+
+            return index;
         }
 
         private static int[] RemoveElementAtIndex(ref int[] numbers, int indexAt)
@@ -125,5 +178,6 @@ namespace LeetCode
             Console.WriteLine(dvds[3]);
             Console.WriteLine(dvds[10]);
         }
+       
     }
 }
